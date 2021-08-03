@@ -4,9 +4,7 @@
   "description": "A recipes page made with React.js | Node.Js | Js | Graphql",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon server.js",
-    "start": "cd client && npm start",
-    "dev": "concurrently --names \"server,client\" \"npm run server --silent\" \"npm run client --silent\""
+    "start": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",

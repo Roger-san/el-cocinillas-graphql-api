@@ -1,12 +1,11 @@
+require("dotenv").config()
 const bcrypt = require("bcrypt")
 const jwt = require("jsonwebtoken")
-
-const SEED = "MY_SEED_auth_rules!"
 
 exports.resolvers = {
   Query: {
     loginByToken: async (_, { token }, { Authors }) =>
-      await jwt.verify(token, SEED, (error, data) => {
+      await jwt.verify(token, process.env.SEED, (error, data) => {
         if (data) return Authors.findOne({ author: data.user.author })
       }),
 
@@ -29,7 +28,7 @@ exports.resolvers = {
       const comparedPasswords = await bcrypt.compare(password, userLogin.password).then((boolean) => boolean)
       if (comparedPasswords) {
         const user = await Authors.findOne({ author: userLogin.author })
-        const token = await jwt.sign({ user }, SEED, {
+        const token = await jwt.sign({ user }, process.env.SEED, {
           expiresIn: "30d"
         })
         return { token, authors: user }
@@ -43,7 +42,7 @@ exports.resolvers = {
         const encryptedPassword = await bcrypt.hash(password, 12)
         new Login({ name, email, password: encryptedPassword }).save()
         const user = await new Authors({ author: name }).save()
-        const token = await jwt.sign({ user }, SEED, {
+        const token = await jwt.sign({ user }, process.env.SEED, {
           expiresIn: "30d"
         })
         console.log("User created:", { token, user })
