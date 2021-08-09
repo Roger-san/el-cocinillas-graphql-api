@@ -17,7 +17,6 @@ exports.resolvers = {
     findRecipeByName: async (_, { recipeName }, { Recipes }) => await Recipes.findOne({ recipeName }),
     getImage: async (_, { name }, { Images }) => await Images.findOne({ name }),
     findAuthor: async (_, { author }, { Authors }) => await Authors.findOne({ author }),
-    findAllAuthors: async (_, __, { Authors }) => await Authors.find(),
     getTotalRecipes: async (_, __, { Recipes }) => {
       const totalRecipes = await Recipes.find()
       return { qty: totalRecipes.length, optionList: totalRecipes }

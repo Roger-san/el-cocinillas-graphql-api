@@ -6,7 +6,6 @@ exports.typeDefs = gql`
     findRecipesByPage(page: Int): [Recipes]!
     getImage(name: String!): Images!
     findAuthor(author: String!): Authors!
-    findAllAuthors: [Authors]!
     getTotalRecipes: TotalRecipes!
     findRecipeByName(recipeName: String): Recipes!
     loginWhithPassword(email: String!, password: String!): LoogedUser
