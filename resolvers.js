@@ -15,11 +15,15 @@ exports.resolvers = {
     },
 
     findRecipeByName: async (_, { recipeName }, { Recipes }) => await Recipes.findOne({ recipeName }),
+
     getImage: async (_, { name }, { Images }) => await Images.findOne({ name }),
+
     findAuthor: async (_, { author }, { Authors }) => await Authors.findOne({ author }),
+
     getTotalRecipes: async (_, __, { Recipes }) => {
-      const totalRecipes = await Recipes.find()
-      return { qty: totalRecipes.length, optionList: totalRecipes }
+      const recipes = await Recipes.find()
+      const recipesNames = recipes.map(x => x.recipeName)
+      return { qty: recipes.length, names: recipesNames }
     },
 
     loginWhithPassword: async (_, { email, password }, { Authors, Login }) => {

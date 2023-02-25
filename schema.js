@@ -16,8 +16,8 @@ exports.typeDefs = gql`
     user: Authors
   }
   type TotalRecipes {
-    qty: Int
-    optionList: [Recipes]!
+    qty: Int!
+    names: [String]!
   }
   type Authors {
     id: ID
