@@ -1,11 +1,9 @@
 require("dotenv").config()
 const mongoose = require("mongoose")
-
 const Authors = require("./models/Authors")
 const Images = require("./models/Images")
 const Login = require("./models/Login")
 const Recipes = require("./models/Recipes")
-
 const { ApolloServer } = require("apollo-server")
 const { typeDefs } = require("./schema")
 const { resolvers } = require("./resolvers")
