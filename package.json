@@ -4,7 +4,7 @@
   "description": "A recipes page made with React.js | Node.Js | Js | Graphql",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,10 +17,6 @@
     "graphql": "^15.5.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.12.14"
-  },
-  "devDependencies": {
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "nodemon": "^2.0.12"
   },
   "repository": {
     "type": "git",
